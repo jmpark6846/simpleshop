@@ -35,20 +35,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true, // js파일에서 css 파일을 모듈 처럼 import 할 수 있게 해준다.
-              camelCase: true,
-              sourceMap: true
-            }
-          }
-        ]
-
+        use: [ 'style-loader', 'css-loader']
       },
       {
         test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
