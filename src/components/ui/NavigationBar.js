@@ -5,27 +5,13 @@ import NavHeader from '../ui-components/NavBar/NavHeader';
 import NavMenu from '../ui-components/NavBar/NavMenu';
 import NavItem from '../ui-components/NavBar/NavItem';
 import './NavigationBar.css'
-import Icon from '../ui-components/Icon/Icon';
-import ToggleButton from '../ui-components/NavBar/ToggleButton';
 
 class NavigationBar extends React.Component {
-  constructor(props){
-    super(props)
-
-    this.state={ toggle:false }
-  }
-
-  handleToggle = () => {
-    this.setState({toggle:!this.state.toggle})
-  }
-  
   render(){
-    const { toggle } = this.state
     return (
       <NavBar className='navigation-bar' >
-        <ToggleButton onClick={this.handleToggle}/>
         <NavHeader>Simpleshop</NavHeader>
-        <NavMenu toggle={toggle} pullRight>
+        <NavMenu pullRight>
           <NavItem to='/shop'>Shop</NavItem>
           <NavItem to='/blog'>Blog</NavItem>
           <NavItem to='/about'>About Us</NavItem>
