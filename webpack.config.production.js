@@ -6,8 +6,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    vendor: ['babel-polyfill'],
-    app: ['./src/index.js'],
+    vendor: ['@fortawesome/fontawesome-free'],
+    app: ['babel-polyfill', './src/index.js'],
   },
   output: {
     filename: 'static/[name].[hash].js',

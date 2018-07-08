@@ -6,8 +6,8 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   entry: {
-    vendor: ['babel-polyfill'],
-    app: ['./src/index.js'],
+    vendor: ['@fortawesome/fontawesome-free'],
+    app: ['babel-polyfill', './src/index.js'],
   },
   output: {
     filename: '[name].[hash].js',
