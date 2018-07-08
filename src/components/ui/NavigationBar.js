@@ -20,11 +20,12 @@ class NavigationBar extends React.Component {
   }
   
   render(){
+    const { toggle } = this.state
     return (
       <NavBar className='navigation-bar' >
         <ToggleButton onClick={this.handleToggle}/>
         <NavHeader>Simpleshop</NavHeader>
-        <NavMenu pullRight>
+        <NavMenu toggle={toggle} pullRight>
           <NavItem to='/shop'>Shop</NavItem>
           <NavItem to='/blog'>Blog</NavItem>
           <NavItem to='/about'>About Us</NavItem>
