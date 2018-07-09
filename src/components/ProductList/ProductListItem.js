@@ -9,8 +9,8 @@ const ProductListItem = ({product}) => {
   return (
     <div className='product-list-item'>
       <ProductItemImg img={product.img} />
-      <ProductItemName name={product.name} />
-      <ProductItemPrice price={product.price} />
+      <ProductItemName name={product.name} /> 
+      <ProductItemPrice suffix='원' price={product.price} />
     </div>
   )
 }
