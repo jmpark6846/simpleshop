@@ -21,7 +21,7 @@
   margin-bottom: 5px;
 }
 
-.product-price {
+.product-list-item .product-price {
   font-size: 1rem;
   font-weight: 300;
   text-align: center;
