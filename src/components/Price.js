@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
-const Price = ({price, prefix, suffix}) => {
+const Price = ({className, price, prefix, suffix}) => {
+  const formattedPrice = String(price).split('').reverse().map((c,i)=>(i+1)%3 === 0 && i !== String(price).length-1 ? ','+c : c).reverse().join('')
+
   return (
-    <div className='price'>
-      {result}
-    </div>
+    <div className={className}>{prefix}{formattedPrice}{suffix}</div>
   )
 }
 
