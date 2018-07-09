@@ -2,11 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import NavigationBar from '../components/ui/NavigationBar'
 
-const PageLayout = ({children}) => {
+const PageLayout = ({page, children}) => {
   return (
     <React.Fragment>
       <NavigationBar />
-      {children}
+      <div className={page}>
+        {children}
+      </div>
+      
     </React.Fragment>
   )
 }

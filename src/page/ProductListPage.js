@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import PageLayout from './PageLayout';
 import ProductList from '../components/ProductList/ProductList'
-import PageHeader from '../components/ui/PageHeader'
+import Header from '../components/ui/Header';
 
 const ProductListPage = () => {
   return (
-    <PageLayout>
-      <PageHeader title='Products' />
+    <PageLayout page='product-list-page'>
+      <Header className='page-header' header='Products' />
       <ProductList /> 
     </PageLayout>
   )
