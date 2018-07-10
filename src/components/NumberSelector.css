@@ -1,0 +1,33 @@
+.number-selector{
+  display: inline-flex;
+  border: 1px solid lightgray;  
+}
+
+.number-selector>*{
+  padding: 0.3rem 0.5rem;
+  min-height: 20px;
+  text-align: center;
+  border:none;
+  background-color:white;
+}
+
+.number-selector>*:focus{
+  outline: darkgray auto 1px;
+}
+
+.number-selector .increment, .number-selector .decrement{
+  cursor: pointer;
+  min-width: 30px;
+}
+
+.number-selector .increment{
+  border-left: 1px solid lightgray;
+}
+
+.number-selector .decrement{  
+  border-right: 1px solid lightgray;
+}
+
+.number-selector .number{
+  width: 4em;
+}

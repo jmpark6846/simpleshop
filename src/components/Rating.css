@@ -1,0 +1,13 @@
+.rating{
+  margin-bottom: 5px;
+  
+}
+
+.review-count{
+  margin-left:10px;
+}
+
+.rating .icon{
+  color: #636363;
+  font-size: 1.1rem;
+}

@@ -6,25 +6,47 @@ import { Col, Row, Container } from '../components/ui-components/grid';
 
 import Header from '../components/ui/Header';
 import Price from '../components/Price';
+import './ProductDetailPage.css'
+import Rating from '../components/Rating';
+import NumberSelector from '../components/NumberSelector';
 
-const product = { name: 'Adventurist Daypack - Pine', price: 580000, img: '/src/asset/img/1.jpeg' }
+const product = { 
+  name: 'Adventurist Daypack - Pine', 
+  price: 580000, 
+  img: '/src/asset/img/1.jpeg',
+  rating: 3.75,
+  reviewCount: 4,
+  reviews: [
+    { title: '좋아요', content:'좋아요좋아요좋아요', ratings: 4 }, 
+    { title: '좋아요', content:'좋아요좋아요좋아요', ratings: 3 }, 
+    { title: '좋아요', content:'좋아요좋아요좋아요', ratings: 3 }, 
+    { title: '좋아요', content:'좋아요좋아요좋아요', ratings: 5 }
+  ]
+}
 
+const order={
+  ea: 0,
+}
 const ProductDetailPage = () => {
   return (
     <PageLayout page='product-detail-page'>
       <Container>
         <Row>
           <Col desktop={6}>
-            <div className='image-wrapper'>
-              <Image className='' src={product.img}/>
+            <div className='section-wrapper'>
+              <Image className='product-img' src={product.img}/>
             </div>
           </Col>
           <Col desktop={6}>
-            <Header header={product.name} />
-            <Price suffix='원' price={product.price} />
+            <div className='section-wrapper'>
+              <Header className='product-name' header={product.name} />
+              <Rating rating={product.rating} reviewCount={product.reviewCount} />
+              <Price className='price' suffix='원' price={product.price} />
+              <NumberSelector number={order.ea}/>
+            </div>
           </Col>
         </Row>
-        <div className='product-explation'>
+        <div className='section-wrapper product-explation'>
 
         </div>
       </Container>
