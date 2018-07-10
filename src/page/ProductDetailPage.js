@@ -24,34 +24,50 @@ const product = {
   ]
 }
 
-const order={
-  ea: 0,
-}
-const ProductDetailPage = () => {
-  return (
-    <PageLayout page='product-detail-page'>
-      <Container>
-        <Row>
-          <Col desktop={6}>
-            <div className='section-wrapper'>
-              <Image className='product-img' src={product.img}/>
-            </div>
-          </Col>
-          <Col desktop={6}>
-            <div className='section-wrapper'>
-              <Header className='product-name' header={product.name} />
-              <Rating rating={product.rating} reviewCount={product.reviewCount} />
-              <Price className='price' suffix='원' price={product.price} />
-              <NumberSelector number={order.ea}/>
-            </div>
-          </Col>
-        </Row>
-        <div className='section-wrapper product-explation'>
 
-        </div>
-      </Container>
-    </PageLayout>
-  )
+class ProductDetailPage extends React.Component{
+  constructor(props){
+    super(props)
+
+    this.state = { 
+      ea: 0
+    }
+  }
+
+  setEA = (ea) => {
+    this.setState({ ea })
+  }
+
+  render(){
+    return (
+      <PageLayout page='product-detail-page'>
+        <Container>
+          <Row>
+            <Col desktop={6}>
+              <div className='section-wrapper'>
+                <Image className='product-img' src={product.img}/>
+              </div>
+            </Col>
+            <Col desktop={6}>
+              <div className='section-wrapper'>
+                <Header className='product-name' header={product.name} />
+                <Rating rating={product.rating} reviewCount={product.reviewCount} />
+                <Price className='price' suffix='원' price={product.price} />
+  
+                <div>
+                  <NumberSelector onChange={this.setEA} number={this.state.ea}/>
+                  <Price className='price' suffix='원' price={product.price*this.state.ea} />
+                </div>
+              </div>
+            </Col>
+          </Row>
+          <div className='section-wrapper product-explation'>
+  
+          </div>
+        </Container>
+      </PageLayout>
+    )
+  }
 }
 
 ProductDetailPage.propTypes = {

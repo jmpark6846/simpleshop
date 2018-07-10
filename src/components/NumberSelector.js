@@ -3,13 +3,6 @@ import PropTypes from 'prop-types'
 import './NumberSelector.css'
 
 class NumberSelector extends React.Component{
-  constructor(props){
-    super(props)
-
-    this.state={
-      number: this.props.number ? this.props.number : 0
-    }
-  }
 
   handleChange = (e) => {
     const isNumber = e.target.value.split('').every(n => Number.isInteger(parseInt(n)))
@@ -20,33 +13,30 @@ class NumberSelector extends React.Component{
       if( number < 0 || number > 999)
         return false
      
-      this.setState({ number })
+      this.props.onChange(number)
     }
   }
 
   handleDecrement = () => {
-    const { number } = this.state
-    if(number > 0)  
-      this.setState({number: number-1})
+    if(this.props.number > 0)  
+      this.props.onChange(this.props.number-1)
   }
 
   handleIncrement = () => {
-    this.setState({number: this.state.number+1})
+    this.props.onChange(this.props.number+1)
   }
 
   render(){
     return (
       <div className='number-selector'>
         <button className='decrement' onClick={this.handleDecrement}>-</button>
-        <input className='number' name='number' onChange={this.handleChange} value={this.state.number} />
+        <input className='number' name='number' onChange={this.handleChange} value={this.props.number} />
         <button className='increment' onClick={this.handleIncrement}>+</button>  
       </div>
     )
   }
 }
 
-NumberSelector.propTypes = {
-  number: PropTypes.number
-}
+
 
 export default NumberSelector
