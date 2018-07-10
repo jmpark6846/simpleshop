@@ -1,0 +1,17 @@
+.tab-group{
+  /* display: flex;
+  align-items: center;
+  justify-content: center */
+}
+
+.tab{
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 1rem 0;  
+  text-align: center;
+
+}
+
+.tab.active{
+  border-bottom: 3px solid palevioletred;
+}
