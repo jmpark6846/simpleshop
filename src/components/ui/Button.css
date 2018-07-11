@@ -1,6 +1,6 @@
 .button {
   color: palevioletred;
-  background-color: white;
+  background-color: transparent;
   border: 1px solid palevioletred;
   border-radius: 3px;
   padding: 0.7rem 1em;
