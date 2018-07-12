@@ -5,6 +5,7 @@ import Button from '../Button';
 import Image from '../../ui-components/Image';
 import Slide from './Slide';
 import LightBox from './LightBox';
+import Previews from './Previews'
 
 class Slider extends React.Component{
   constructor(props){
@@ -35,7 +36,11 @@ class Slider extends React.Component{
   renderSlides = () => {
     const { showIndex } = this.state
     const { imgs } = this.props
-    return imgs.map((img,i) => <Slide toggleZoom={this.toggleZoom} show={showIndex===i} key={i} img={img} />)
+    return imgs.map((img,i) => <Slide onClick={this.toggleZoom} show={showIndex===i} key={i} img={img} />)
+  }
+
+  previewClick = (index) => {
+    this.setState({ showIndex: index })
   }
 
   render(){

@@ -9,11 +9,20 @@ import Price from '../components/Price';
 import './ProductDetailPage.css'
 import Rating from '../components/Rating';
 import NumberSelector from '../components/NumberSelector';
+import Divider from '../components/ui-components/Divider/Divider'
+import Button from '../components/ui/Button'
+import TabGroup from '../components/ui/TabGroup';
+import styled from 'styled-components';
+import ProductInfoRow from '../components/ProductDetail/ProductInfoRow';
+import Tab from '../components/ui/Tab';
+import ProductInfoSection from '../components/ProductDetail/ProductInfoSection';
+import Slider from '../components/ui/Slider/Slider';
+import SectionWrapper from '../components/ProductDetail/SectionWrapper';
 
 const product = { 
   name: 'Adventurist Daypack - Pine', 
-  price: 580000, 
-  img: '/src/asset/img/1.jpeg',
+  price: 58000, 
+  imgs: ['/src/asset/img/1.jpeg', '/src/asset/img/2.jpg', '/src/asset/img/3.jpg'] ,
   rating: 3.75,
   reviewCount: 4,
   reviews: [
@@ -24,18 +33,24 @@ const product = {
   ]
 }
 
-
 class ProductDetailPage extends React.Component{
   constructor(props){
     super(props)
 
     this.state = { 
-      ea: 0
+      ea: 1,
+      shippingRate: 3000,
+      shippingRateFreeLimit: 30000,
+      totalPrice: product.price
     }
   }
 
   setEA = (ea) => {
-    this.setState({ ea })
+    const totalPrice = ea * product.price
+    this.setState({ 
+      totalPrice,
+      ea
+    })
   }
 
   render(){
@@ -44,26 +59,30 @@ class ProductDetailPage extends React.Component{
         <Container>
           <Row>
             <Col desktop={6}>
-              <div className='section-wrapper'>
-                <Image className='product-img' src={product.img}/>
-              </div>
+              <SectionWrapper>
+                <Slider imgs={product.imgs} />
+                {/* <Image className='product-img' src={product.img}/> */}
+              </SectionWrapper>
             </Col>
             <Col desktop={6}>
-              <div className='section-wrapper'>
-                <Header className='product-name' header={product.name} />
-                <Rating rating={product.rating} reviewCount={product.reviewCount} />
-                <Price className='price' suffix='원' price={product.price} />
-  
-                <div>
-                  <NumberSelector onChange={this.setEA} number={this.state.ea}/>
-                  <Price className='price' suffix='원' price={product.price*this.state.ea} />
-                </div>
-              </div>
+              <ProductInfoSection setEA={this.setEA} {...this.state} product={product} />
             </Col>
           </Row>
-          <div className='section-wrapper product-explation'>
-  
-          </div>
+          <SectionWrapper>
+            
+          </SectionWrapper>
+          <SectionWrapper id='detail'>
+            
+          </SectionWrapper>
+          <SectionWrapper id='review'>
+            
+          </SectionWrapper>
+          <SectionWrapper id='inquiry'>
+            
+          </SectionWrapper>
+          <SectionWrapper id='refund'>
+            
+          </SectionWrapper>
         </Container>
       </PageLayout>
     )

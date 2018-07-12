@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-const Slide = ({show, img, toggleZoom}) => {
+
+const Slide = ({show, className, img, onClick}) => {
   return (
     <li 
-      onClick={toggleZoom} 
-      className={classNames('slide', { show })} 
+      onClick={onClick} 
+      className={classNames('slide', { className, show })} 
       style={{ backgroundImage: `url(${img})` }}
       >
     </li>
