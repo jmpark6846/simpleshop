@@ -1,6 +1,7 @@
 import React from 'react'
 import PageLayout from './PageLayout';
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import { Col, Row, Container } from '../components/ui-components/grid';
 import ProductInfoSection from '../components/ProductDetail/ProductInfoSection';
@@ -47,6 +48,7 @@ class ProductDetailPage extends React.Component{
   }
 
   render(){
+    const cartProductInfo = {id: product.id, name: product.name, price: product.price, img: product.imgs[0]}
     return (
       <PageLayout page='product-detail-page'>
         <Container>
@@ -59,7 +61,7 @@ class ProductDetailPage extends React.Component{
             <Col desktop={6}>
               <ProductInfoSection setEA={this.setEA} {...this.state} product={product} />
               <ProductInfoRow>
-                <Button value='장바구니 담기'/>
+                <Button onClick={()=>this.props.addToCart(cartProductInfo)} value='장바구니 담기'/>
                 <Button value='구매하기' primary />
               </ProductInfoRow>
             </Col>
@@ -71,7 +73,7 @@ class ProductDetailPage extends React.Component{
 }
 
 ProductDetailPage.propTypes = {
-
+  addToCart: PropTypes.func
 }
 
 const mapDispatch = (dispatch) => ({
