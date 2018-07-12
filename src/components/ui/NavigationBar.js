@@ -12,9 +12,7 @@ class NavigationBar extends React.Component {
       <NavBar className='navigation-bar' >
         <NavHeader>Simpleshop</NavHeader>
         <NavMenu pullRight>
-          <NavItem to='/shop'>Shop</NavItem>
-          <NavItem to='/blog'>Blog</NavItem>
-          <NavItem to='/about'>About Us</NavItem>
+          <NavItem to='/'>Shop</NavItem>
         </NavMenu>
       </NavBar>
     )

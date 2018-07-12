@@ -1,25 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import PageLayout from './PageLayout';
-import Image from '../components/ui-components/Image';
-import { Col, Row, Container } from '../components/ui-components/grid';
+import { connect } from 'react-redux'
 
-import Header from '../components/ui/Header';
-import Price from '../components/Price';
-import './ProductDetailPage.css'
-import Rating from '../components/Rating';
-import NumberSelector from '../components/NumberSelector';
-import Divider from '../components/ui-components/Divider/Divider'
-import Button from '../components/ui/Button'
-import TabGroup from '../components/ui/TabGroup';
-import styled from 'styled-components';
-import ProductInfoRow from '../components/ProductDetail/ProductInfoRow';
-import Tab from '../components/ui/Tab';
+import { Col, Row, Container } from '../components/ui-components/grid';
 import ProductInfoSection from '../components/ProductDetail/ProductInfoSection';
 import Slider from '../components/ui/Slider/Slider';
 import SectionWrapper from '../components/ProductDetail/SectionWrapper';
+import './ProductDetailPage.css'
+import { doAddToCart } from '../actions/cart';
+import ProductInfoRow from '../components/ProductDetail/ProductInfoRow';
+import Button from '../components/ui/Button';
 
 const product = { 
+  id:0,
   name: 'Adventurist Daypack - Pine', 
   price: 58000, 
   imgs: ['/src/asset/img/1.jpeg', '/src/asset/img/2.jpg', '/src/asset/img/3.jpg'] ,
@@ -65,6 +58,10 @@ class ProductDetailPage extends React.Component{
             </Col>
             <Col desktop={6}>
               <ProductInfoSection setEA={this.setEA} {...this.state} product={product} />
+              <ProductInfoRow>
+                <Button value='장바구니 담기'/>
+                <Button value='구매하기' primary />
+              </ProductInfoRow>
             </Col>
           </Row>
         </Container>
@@ -77,4 +74,8 @@ ProductDetailPage.propTypes = {
 
 }
 
-export default ProductDetailPage
+const mapDispatch = (dispatch) => ({
+  addToCart: (product) => dispatch(doAddToCart(product))
+})
+
+export default connect(undefined, mapDispatch)(ProductDetailPage)

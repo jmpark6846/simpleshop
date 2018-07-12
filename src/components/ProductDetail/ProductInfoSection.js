@@ -5,7 +5,6 @@ import Rating from '../Rating';
 import Price from '../Price';
 import Divider from '../ui-components/Divider/Divider';
 import ProductInfoRow from './ProductInfoRow';
-import Button from '../ui/Button';
 import SectionWrapper from './SectionWrapper'
 import NumberSelector from '../NumberSelector';
 
@@ -30,10 +29,6 @@ const ProductInfoSection = ({ea, product, shippingRate, shippingRateFreeLimit, t
         총 금액
         <Price className='price' suffix='원' price={totalPrice} />
       </ProductInfoRow>
-      <ProductInfoRow>
-        <Button value='장바구니 담기'/>
-        <Button value='구매하기' primary />
-      </ProductInfoRow>
     </SectionWrapper>
   )
 }
@@ -41,5 +36,6 @@ const ProductInfoSection = ({ea, product, shippingRate, shippingRateFreeLimit, t
 ProductInfoSection.propTypes = {
 
 }
+
 
 export default ProductInfoSection

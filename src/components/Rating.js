@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import Icon from '../components/ui-components/Icon/Icon'
+import Icon from './ui-components/Icon/Icon'
 import './Rating.css'
 
 const maxRating = 5

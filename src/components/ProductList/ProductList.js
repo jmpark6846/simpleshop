@@ -21,7 +21,7 @@ const ProductList = () => {
       <Container>
         <Row>
           { products.map((p,i)=>
-              <Col key={i} desktop={4}><ProductListItem product={p} /></Col>)
+            <Col key={i} desktop={4}><ProductListItem product={p} /></Col>)
           }
         </Row>
       </Container>
