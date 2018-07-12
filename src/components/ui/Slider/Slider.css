@@ -20,6 +20,8 @@
   list-style: none;
   padding:0;
   margin:0 15px;
+  /* transform: translateX(-100%);
+  transition-duration: 0.45s; */
 }
 
 .slider .slide{
@@ -29,16 +31,13 @@
   background-position: center;
   cursor: zoom-in;
 }
-
 .slider .slide.show::after{
+/* .slider .slide::after{ */
   content:'';
   display: block;
   z-index: -100;
   padding-bottom: 100%;
-}
-
-.slider .slide:first-child{
-  display: list-item;  
+  
 }
 
 .slider .leftArrow{

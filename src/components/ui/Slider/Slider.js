@@ -6,7 +6,7 @@ import Image from '../../ui-components/Image';
 import Slide from './Slide';
 import LightBox from './LightBox';
 
-class slider extends React.Component{
+class Slider extends React.Component{
   constructor(props){
     super(props)
 
@@ -16,26 +16,26 @@ class slider extends React.Component{
     }
   }
 
-  renderSlides = () => {
-    const { showIndex } = this.state
-    const { imgs } = this.props
-    return imgs.map((img,i) => <Slide toggleZoom={this.toggleZoom} show={showIndex===i} key={i} img={img} />)
-  }
-  
   slideLeft = () => {
     const { showIndex } = this.state
     const nextIndex = showIndex - 1 < 0 ? this.props.imgs.length - 1 : showIndex - 1 
-    this.setState({ showIndex: nextIndex })
+    this.setState({ showIndex: nextIndex, translateValue: '-100%' })
   }
 
   slideRight = () => {
     const { showIndex } = this.state
     const nextIndex = showIndex + 1 > this.props.imgs.length-1 ? 0 : showIndex + 1 
-    this.setState({ showIndex: nextIndex })
+    this.setState({ showIndex: nextIndex, translateValue: '100%' })
   } 
 
   toggleZoom = () => {
     this.setState({ showLigthbox : !this.state.showLigthbox })
+  }
+
+  renderSlides = () => {
+    const { showIndex } = this.state
+    const { imgs } = this.props
+    return imgs.map((img,i) => <Slide toggleZoom={this.toggleZoom} show={showIndex===i} key={i} img={img} />)
   }
 
   render(){
@@ -53,8 +53,8 @@ class slider extends React.Component{
   
 }
 
-slider.propTypes = {
+Slider.propTypes = {
   imgs: PropTypes.array
 }
 
-export default slider
+export default Slider
