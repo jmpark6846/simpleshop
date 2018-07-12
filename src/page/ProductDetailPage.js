@@ -61,28 +61,13 @@ class ProductDetailPage extends React.Component{
             <Col desktop={6}>
               <SectionWrapper>
                 <Slider imgs={product.imgs} />
-                {/* <Image className='product-img' src={product.img}/> */}
               </SectionWrapper>
             </Col>
             <Col desktop={6}>
               <ProductInfoSection setEA={this.setEA} {...this.state} product={product} />
+              <ProductDetailSection />
             </Col>
           </Row>
-          <SectionWrapper>
-            
-          </SectionWrapper>
-          <SectionWrapper id='detail'>
-            
-          </SectionWrapper>
-          <SectionWrapper id='review'>
-            
-          </SectionWrapper>
-          <SectionWrapper id='inquiry'>
-            
-          </SectionWrapper>
-          <SectionWrapper id='refund'>
-            
-          </SectionWrapper>
         </Container>
       </PageLayout>
     )
