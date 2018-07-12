@@ -65,7 +65,6 @@ class ProductDetailPage extends React.Component{
             </Col>
             <Col desktop={6}>
               <ProductInfoSection setEA={this.setEA} {...this.state} product={product} />
-              <ProductDetailSection />
             </Col>
           </Row>
         </Container>
