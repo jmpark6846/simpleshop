@@ -6,11 +6,10 @@ class NumberSelector extends React.Component{
 
   handleChange = (e) => {
     const isNumber = e.target.value.split('').every(n => Number.isInteger(parseInt(n)))
-
-    if(isNumber){
+    if(isNumber && !isNaN(parseInt(e.target.value))){
       let number = parseInt(e.target.value)
 
-      if( number < 0 || number > 999)
+      if( number < 1 || number > 999)
         return false
      
       this.props.onChange(number)
@@ -18,7 +17,7 @@ class NumberSelector extends React.Component{
   }
 
   handleDecrement = () => {
-    if(this.props.number > 0)  
+    if(this.props.number > 1)  
       this.props.onChange(this.props.number-1)
   }
 
@@ -27,6 +26,7 @@ class NumberSelector extends React.Component{
   }
 
   render(){
+    
     return (
       <div className='number-selector'>
         <button className='decrement' onClick={this.handleDecrement}>-</button>
