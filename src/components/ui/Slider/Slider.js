@@ -52,6 +52,7 @@ class Slider extends React.Component{
         <Button className='leftArrow' icon='fas fa-angle-left' onClick={this.slideLeft}   />
         <Button className='rightArrow' icon='fas fa-angle-right' onClick={this.slideRight} />
         <LightBox toggleZoom={this.toggleZoom} show={this.state.showLigthbox} img={this.props.imgs[this.state.showIndex]} />
+        <Previews index={this.state.showIndex} imgs={this.props.imgs} previewClick={this.previewClick} />
       </div>
     )
   }
