@@ -9,7 +9,7 @@ import Icon from '../../ui-components/Icon/Icon';
 import Button from '../../ui-components/Button/Button';
 import Price from '../../ui-components/Price/Price';
 
-const Cart = ({cartItems, show, error, errorMsg, totalPrice}) => {
+export const Cart = ({cartItems, show, error, errorMsg, totalPrice}) => {
   return (
       <div className={classNames('cart', { show } )}>
         { Object.keys(cartItems).length !== 0 ? 
@@ -24,7 +24,7 @@ const Cart = ({cartItems, show, error, errorMsg, totalPrice}) => {
           </CartItem> }
         <CartItem>
           총 금액: <Price price={totalPrice} suffix='원'/>
-        </CartItem>
+        </CartItem> 
         <CartItem>
           <Button className='buy' value='구매하기' primary/>
         </CartItem>
@@ -33,7 +33,11 @@ const Cart = ({cartItems, show, error, errorMsg, totalPrice}) => {
 }
 
 Cart.propTypes = {
-  cartItems: PropTypes.object
+  cartItems: PropTypes.object,
+  show: PropTypes.bool,
+  error: PropTypes.bool,
+  errorMsg: PropTypes.string,
+  totalPrice: PropTypes.number
 }
 
 const mapState = ({cart}) => ({

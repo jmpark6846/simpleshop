@@ -7,7 +7,7 @@ import classNames from 'classnames'
 import Price from "../../ui-components/Price/Price";
 import { doDeleteCartItem } from '../../../actions/cart';
 
-const CartItem = ({className, cartItem, children, deleteCartItem}) => {
+export const CartItem = ({className, cartItem, children, deleteCartItem}) => {
   return (
     <div className={classNames('cart-item', className)}>
       { children ? 
@@ -28,6 +28,9 @@ const CartItem = ({className, cartItem, children, deleteCartItem}) => {
 }
 
 CartItem.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  deleteCartItem: PropTypes.func,
   cartItem: PropTypes.object
 }
 
