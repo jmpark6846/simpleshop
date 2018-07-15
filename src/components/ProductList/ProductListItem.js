@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ProductItemName from './ProductItemName';
 import { connect } from "react-redux";
 import Image from '../ui-components/Image'
-import Price from "../Price";
+import Price from "../ui-components/Price/Price";
 import { NavLink } from "react-router-dom";
 import './ProductListItem.css'
 import Button from '../ui-components/Button/Button';

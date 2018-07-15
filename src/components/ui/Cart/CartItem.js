@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import classNames from 'classnames'
 
-import Price from "../../Price";
+import Price from "../../ui-components/Price/Price";
 import { doDeleteCartItem } from '../../../actions/cart';
 
 const CartItem = ({className, cartItem, children, deleteCartItem}) => {
