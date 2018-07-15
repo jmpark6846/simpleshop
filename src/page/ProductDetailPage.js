@@ -11,36 +11,28 @@ import './ProductDetailPage.css'
 import { doAddToCart } from '../actions/cart';
 import ProductInfoRow from '../components/ProductDetail/ProductInfoRow';
 import Button from '../components/ui/Button';
-
-const product = { 
-  id:0,
-  name: 'Adventurist Daypack - Pine', 
-  price: 58000, 
-  imgs: ['/src/asset/img/1.jpeg', '/src/asset/img/2.jpg', '/src/asset/img/3.jpg'] ,
-  rating: 3.75,
-  reviewCount: 4,
-  reviews: [
-    { title: '좋아요', content:'좋아요좋아요좋아요', ratings: 4 }, 
-    { title: '좋아요', content:'좋아요좋아요좋아요', ratings: 3 }, 
-    { title: '좋아요', content:'좋아요좋아요좋아요', ratings: 3 }, 
-    { title: '좋아요', content:'좋아요좋아요좋아요', ratings: 5 }
-  ]
-}
+import { products } from "../constants/dummy";
 
 class ProductDetailPage extends React.Component{
   constructor(props){
     super(props)
 
     this.state = { 
+      product: undefined,
       ea: 1,
       shippingRate: 3000,
       shippingRateFreeLimit: 30000,
-      totalPrice: product.price
+      totalPrice: 0
     }
   }
 
+  componentDidMount = () => {
+    const id = this.props.match.params.id
+    this.setState({product: products[id], totalPrice: products[id].price})
+  }
+  
   setEA = (ea) => {
-    const totalPrice = ea * product.price
+    const totalPrice = ea * this.state.product.price
     this.setState({ 
       totalPrice,
       ea
@@ -48,9 +40,10 @@ class ProductDetailPage extends React.Component{
   }
 
   render(){
-    const cartProductInfo = {id: product.id, name: product.name, price: product.price, img: product.imgs[0]}
+    const { product } = this.state
     return (
       <PageLayout page='product-detail-page'>
+        { product ?
         <Container>
           <Row>
             <Col desktop={6}>
@@ -60,13 +53,18 @@ class ProductDetailPage extends React.Component{
             </Col>
             <Col desktop={6}>
               <ProductInfoSection setEA={this.setEA} {...this.state} product={product} />
-              <ProductInfoRow>
-                <Button onClick={()=>this.props.addToCart(cartProductInfo)} value='장바구니 담기'/>
-                <Button value='구매하기' primary />
-              </ProductInfoRow>
+              <SectionWrapper>
+                <ProductInfoRow>
+                  <Button onClick={()=>this.props.addToCart({id: product.id, name: product.name, price: product.price, img: product.imgs[0], ea:this.state.ea})} value='장바구니 담기'/>
+                  <Button value='구매하기' primary />
+                </ProductInfoRow>
+              </SectionWrapper>
             </Col>
           </Row>
         </Container>
+        :
+        <div>loading...</div>
+        }
       </PageLayout>
     )
   }
@@ -77,7 +75,7 @@ ProductDetailPage.propTypes = {
 }
 
 const mapDispatch = (dispatch) => ({
-  addToCart: (product) => dispatch(doAddToCart(product))
+  addToCart: (cartItem) => dispatch(doAddToCart(cartItem))
 })
 
 export default connect(undefined, mapDispatch)(ProductDetailPage)
