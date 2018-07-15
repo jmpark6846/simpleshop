@@ -1,11 +1,13 @@
-{ 
-  "presets": [
-    ["env", {"modules" : false}],
-    "react",
-    "stage-3"
-  ],
-  "plugins": [
-    "transform-class-properties",
-    "react-hot-loader/babel"
-  ]
+{
+  "ignore": [],
+  "env": {
+    "test": {
+      "presets": [ "env", "react", "stage-3" ],
+      "plugins": [ "transform-class-properties", "react-hot-loader/babel" ]
+    },
+    "development": { 
+      "presets": [ ["env", {"modules" : false} ], "react", "stage-3" ],
+      "plugins": [ "transform-class-properties", "react-hot-loader/babel" ]
+    }
+  }
 }
