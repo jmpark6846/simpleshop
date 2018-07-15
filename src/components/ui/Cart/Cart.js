@@ -6,7 +6,7 @@ import './Cart.css'
 import CartItem from './CartItem';
 
 import Icon from '../../ui-components/Icon/Icon';
-import Button from '../Button';
+import Button from '../../ui-components/Button/Button';
 import Price from '../../Price';
 
 const Cart = ({cartItems, show, error, errorMsg, totalPrice}) => {

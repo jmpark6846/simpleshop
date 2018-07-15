@@ -6,7 +6,7 @@ import Image from '../ui-components/Image'
 import Price from "../Price";
 import { NavLink } from "react-router-dom";
 import './ProductListItem.css'
-import Button from '../ui/Button';
+import Button from '../ui-components/Button/Button';
 import { doAddToCart } from '../../actions/cart';
 
 const ProductListItem = ({product, addToCart}) => {

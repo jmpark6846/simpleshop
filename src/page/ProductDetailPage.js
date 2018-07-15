@@ -5,12 +5,12 @@ import PropTypes from 'prop-types'
 
 import { Col, Row, Container } from '../components/ui-components/grid';
 import ProductInfoSection from '../components/ProductDetail/ProductInfoSection';
-import Slider from '../components/ui/Slider/Slider';
+import Slider from '../components/ui-components/Slider/Slider';
 import SectionWrapper from '../components/ProductDetail/SectionWrapper';
 import './ProductDetailPage.css'
 import { doAddToCart } from '../actions/cart';
 import ProductInfoRow from '../components/ProductDetail/ProductInfoRow';
-import Button from '../components/ui/Button';
+import Button from '../components/ui-components/Button/Button';
 import { products } from "../constants/dummy";
 
 class ProductDetailPage extends React.Component{

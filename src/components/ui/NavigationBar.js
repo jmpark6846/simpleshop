@@ -7,7 +7,7 @@ import NavHeader from '../ui-components/NavBar/NavHeader';
 import NavMenu from '../ui-components/NavBar/NavMenu';
 import NavItem from '../ui-components/NavBar/NavItem';
 import './NavigationBar.css'
-import Button from './Button';
+import Button from '../ui-components/Button/Button';
 import Cart from "./Cart/Cart";
 import { doToggleCart } from '../../actions/cart';
 
