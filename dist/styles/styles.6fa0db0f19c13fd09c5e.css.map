@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/components/App.css"],"names":[],"mappings":"AAAA;EACE,oBAAoB;EACpB,eAAe","file":"styles/styles.6fa0db0f19c13fd09c5e.css","sourcesContent":[".App{\r\n  color:palevioletred;\r\n  font-size:2rem;\r\n}"],"sourceRoot":""}

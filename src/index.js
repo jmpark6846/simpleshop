@@ -6,17 +6,27 @@ import { Provider } from 'react-redux'
 import App from './components/App';
 import store from './store';
 
-const render = Component =>
-  ReactDOM.render(
-    <AppContainer>
-      <Provider store={store}>
-        <Component />
-      </Provider>
-    </AppContainer>,
+if(process.env === 'production'){
+  ReactDOM(
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.getElementById('root')
-  );
+  )
+}else{
 
-render(App);
+  const render = Component =>
+    ReactDOM.render(
+      <AppContainer>
+        <Provider store={store}>
+          <Component />
+        </Provider>
+      </AppContainer>,
+      document.getElementById('root')
+    );
 
-// Webpack Hot Module Replacement API 부분
-if (module.hot) module.hot.accept('./components/App', () => render(App));
+  render(App);
+
+  // Webpack Hot Module Replacement API 부분
+  if (module.hot) module.hot.accept('./components/App', () => render(App));
+}

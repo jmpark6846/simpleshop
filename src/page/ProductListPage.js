@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import PageLayout from './PageLayout';
 import ProductList from '../components/ProductList/ProductList'
-import Header from '../components/ui/Header';
+import Header from '../components/ui/Header/Header';
 
 const ProductListPage = () => {
   return (
@@ -11,10 +10,6 @@ const ProductListPage = () => {
       <ProductList /> 
     </PageLayout>
   )
-}
-
-ProductListPage.propTypes = {
-
 }
 
 export default ProductListPage
