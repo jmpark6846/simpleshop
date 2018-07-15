@@ -1,3 +1,27 @@
 .navigation-bar{
-  min-height:3em;
+  min-height:3em; 
+  z-index: 1000;
+  background-color: white;
+  border-bottom:1px solid lightgray;
+}
+
+.navigation-bar .nav-menu{
+  margin-right:60px;
+}
+.shopping-cart{
+  right: 15px;
+  top: 10px;
+  position: absolute;
+  /* border: none!important; */
+}
+.shopping-cart:hover{
+  background-color: transparent!important;
+}
+
+@media only screen and (min-width: 992px) {
+  .shopping-cart{
+    right:15px;
+    top:10px;
+    position: block;
+  }
 }

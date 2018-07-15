@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Slider.css'
 import Button from '../Button';
-import Image from '../../ui-components/Image';
 import Slide from './Slide';
 import LightBox from './LightBox';
 import Previews from './Previews'
