@@ -8,11 +8,10 @@ import ProductInfoRow from './../ProductInfoRow';
 import SectionWrapper from './../SectionWrapper'
 import NumberSelector from '../../ui-components/NumberSelector/NumberSelector';
 
-const ProductInfoSection = ({ea, product, shippingRate, shippingRateFreeLimit, totalPrice, setEA}) => {
+const ProductInfoSection = ({ea, product, shippingRate, shippingRateFreeLimit, totalPrice, handleEAChange}) => {
   return (
     <SectionWrapper>
       <Header className='product-name' header={product.name} />
-      {/* <Rating value={product.rating} reviewCount={product.reviewCount} /> */}
       <Rating value={product.rating} />
       <Price className='price' suffix='원' price={product.price} />
 
@@ -22,7 +21,7 @@ const ProductInfoSection = ({ea, product, shippingRate, shippingRateFreeLimit, t
         <Price className='ea' suffix='원' price={shippingRate} />
       </ProductInfoRow>
       <ProductInfoRow>
-        <NumberSelector onChange={setEA} number={ea}/>
+        <NumberSelector onChange={handleEAChange} number={ea}/>
         <Price className='ea' suffix='원' price={product.price*ea} />
       </ProductInfoRow>
       <Divider />
@@ -40,7 +39,7 @@ ProductInfoSection.propTypes = {
   shippingRate: PropTypes.number,
   shippingRateFreeLimit: PropTypes.number,
   totalPrice: PropTypes.number,
-  setEA: PropTypes.func
+  handleEAChange: PropTypes.func
 }
 
 export default ProductInfoSection
