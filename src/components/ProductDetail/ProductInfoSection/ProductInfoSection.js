@@ -35,8 +35,12 @@ const ProductInfoSection = ({ea, product, shippingRate, shippingRateFreeLimit, t
 }
 
 ProductInfoSection.propTypes = {
-
+  ea: PropTypes.number,
+  product: PropTypes.object,
+  shippingRate: PropTypes.number,
+  shippingRateFreeLimit: PropTypes.number,
+  totalPrice: PropTypes.number,
+  setEA: PropTypes.func
 }
-
 
 export default ProductInfoSection
