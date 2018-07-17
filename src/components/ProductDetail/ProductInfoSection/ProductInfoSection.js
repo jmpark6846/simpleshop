@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Header from '../ui/Header/Header';
-import Rating from '../ui-components/Rating/Rating';
-import Price from '../ui-components/Price/Price';
-import Divider from '../ui-components/Divider/Divider';
-import ProductInfoRow from './ProductInfoRow';
-import SectionWrapper from './SectionWrapper'
-import NumberSelector from '../ui-components/NumberSelector/NumberSelector';
+import Header from '../../ui/Header/Header';
+import Rating from '../../ui-components/Rating/Rating';
+import Price from '../../ui-components/Price/Price';
+import Divider from '../../ui-components/Divider/Divider';
+import ProductInfoRow from './../ProductInfoRow';
+import SectionWrapper from './../SectionWrapper'
+import NumberSelector from '../../ui-components/NumberSelector/NumberSelector';
 
 const ProductInfoSection = ({ea, product, shippingRate, shippingRateFreeLimit, totalPrice, setEA}) => {
   return (
