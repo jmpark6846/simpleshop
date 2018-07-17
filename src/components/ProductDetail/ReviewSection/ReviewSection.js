@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SectionWrapper from './SectionWrapper';
-import ReviewRow from './ReviewRow';
-import ReviewForm from './ReviewForm';
-import Header from '../ui/Header/Header';
-import Rating from '../ui-components/Rating/Rating';
-import Button from '../ui-components/Button/Button';
+import SectionWrapper from '../SectionWrapper';
+import ReviewRow from '../ReviewRow';
+import ReviewForm from '../ReviewForm';
+import Header from '../../ui/Header/Header';
+import Rating from '../../ui-components/Rating/Rating';
+import Button from '../../ui-components/Button/Button';
 
 export class ReviewSection extends React.Component{
   constructor(props){
