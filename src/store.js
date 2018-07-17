@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { createLogger } from 'redux-logger'
-import { cart } from './reducers/cart'
+import { cart, product } from './reducers'
 
 const root = combineReducers({
-  cart:cart
+  cart: cart,
+  product: product,
 })
 
 const logger = createLogger()
