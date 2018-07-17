@@ -1,0 +1,15 @@
+.review-row{
+  /* margin-bottom: 25px; */
+  padding: 35px 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.review-row .rating{
+  margin-bottom: 10px;
+}
+
+.review-row .title{
+  /* font-size: 1.05rem; */
+  font-weight: 600;
+  margin-bottom:15px;
+}

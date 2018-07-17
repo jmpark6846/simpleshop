@@ -12,7 +12,8 @@ const ProductInfoSection = ({ea, product, shippingRate, shippingRateFreeLimit, t
   return (
     <SectionWrapper>
       <Header className='product-name' header={product.name} />
-      <Rating rating={product.rating} reviewCount={product.reviewCount} />
+      {/* <Rating value={product.rating} reviewCount={product.reviewCount} /> */}
+      <Rating value={product.rating} />
       <Price className='price' suffix='원' price={product.price} />
 
       <Divider />

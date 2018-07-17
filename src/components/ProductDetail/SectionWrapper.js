@@ -1,17 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import './SectionWrapper.css'
 
-const SectionWrapper = ({children}) => {
+const SectionWrapper = ({children, className}) => {
   return (
-    <div className='section-wrapper'>
+    <div className={classNames('section-wrapper', className)}>
       {children}
     </div>
   )
 }
 
 SectionWrapper.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string,
 }
 
 export default SectionWrapper
