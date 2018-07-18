@@ -1,4 +1,4 @@
-import { ADD_TO_CART, TOGGLE_CART, DELETE_CART_ITEM, LOAD_NEW_PAGE } from "../constants/actionTypes";
+import { ADD_TO_CART, TOGGLE_CART, DELETE_CART_ITEM, LOAD_NEW_PAGE, EA_CHANGE } from "../constants/actionTypes";
 
 export const doAddToCart = (cartItem) => ({
   type: ADD_TO_CART,
@@ -16,4 +16,10 @@ export const doDeleteCartItem = (id) => ({
 
 export const doLoadNewPage = () => ({
   type: LOAD_NEW_PAGE,
+})
+
+export const doChangeEA = (id, ea) => ({
+  type: EA_CHANGE,
+  id,
+  ea
 })
