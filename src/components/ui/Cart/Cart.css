@@ -7,7 +7,7 @@
   border-radius: 3px;
   display: none;
   font-size: 0.9rem;
-  width: 253px;
+  width: 300px;
   z-index: 1000;
 }
 
@@ -17,8 +17,10 @@
 }
 
 .cart-item{
-  padding: 10px;
+  padding: 15px;
+  
   border-bottom: 1px solid lightgray;
+  display: flex;
 }
 .cart-item .image{
   background-size: cover;
@@ -41,6 +43,7 @@
   display: inline-block;
   font-size: 0.9rem;
   vertical-align: top;
+  padding: 0 5px;
 }
 
 .cart-item.error{
@@ -51,9 +54,11 @@
 .cart-item.error .icon{
   margin-right: 5px;
 }
-
 .cart-item .delete{
-  text-align: right; 
+  align-self: center;
+}
+.cart-item .delete .icon{
+  cursor: pointer;
 }
 
 .cart button.buy{

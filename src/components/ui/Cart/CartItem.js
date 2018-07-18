@@ -4,9 +4,11 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 import NumberSelector from '../../ui-components/NumberSelector/NumberSelector'
 import Price from "../../ui-components/Price/Price";
-import { doDeleteCartItem } from '../../../actions/cart';
+import Icon from '../../ui-components/Icon/Icon'
+import { doDeleteCartItem, doChangeEA } from '../../../actions/cart';
+import { cart } from '../../../reducers/cart';
 
-export const CartItem = ({className, cartItem, children, deleteCartItem}) => {
+export const CartItem = ({className, cartItem, children, deleteCartItem, changeEA}) => {
   return (
     <div className={classNames('cart-item', className)}>
       { children ? 
@@ -15,12 +17,13 @@ export const CartItem = ({className, cartItem, children, deleteCartItem}) => {
         <React.Fragment>
           <div className='image' style={{ backgroundImage: `url(${cartItem.img})` }}></div>      
           <div className='item-info'>
-            <div>{ cartItem.name }</div>
+            <div>{ cartItem.name.length > 20 ? `${cartItem.name.substr(0,20)}...` : cartItem.name }</div>
             <div><Price price={ cartItem.price } suffix='원' /></div>
-            <NumberSelector number={cartItem.ea} onChange={(ea)=>this.changeEA(ea)} />
-            <div><Price price={ cartItem.price*cartItem.ea } suffix='원' /></div>
+            <NumberSelector number={cartItem.ea} onChange={(ea)=>changeEA(cartItem.id, ea)} />
           </div>
-          <div className='delete' onClick={()=>deleteCartItem(cartItem.id)}>삭제</div>
+          <div className='delete'>
+            <Icon icon='far fa-trash-alt' onClick={()=>deleteCartItem(cartItem.id)} />
+          </div>
         </React.Fragment>
       }
     </div>
@@ -30,12 +33,13 @@ export const CartItem = ({className, cartItem, children, deleteCartItem}) => {
 CartItem.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  changeEA: PropTypes.func,
   deleteCartItem: PropTypes.func,
   cartItem: PropTypes.object
 }
 
 const mapDispatch = (dispatch) => ({
-  changeEA: (ea) => dispatch(doChangeEA(ea)),
+  changeEA: (id, ea) => dispatch(doChangeEA(id, ea)),
   deleteCartItem: (id) => dispatch(doDeleteCartItem(id))
 })
 export default connect(undefined, mapDispatch)(CartItem)
