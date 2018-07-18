@@ -23,7 +23,7 @@ export const Cart = ({cartItems, show, error, errorMsg, totalPrice}) => {
             {errorMsg}
           </CartItem> }
         <CartItem>
-          총 금액: <Price price={totalPrice} suffix='원'/>
+          총 금액: <Price className='cart-total-price' price={totalPrice} suffix='원'/>
         </CartItem> 
         <CartItem>
           <Button className='buy' value='구매하기' primary/>

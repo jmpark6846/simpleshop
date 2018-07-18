@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart Cart snapshot test 1`] = `
+<div
+  className="cart"
+>
+  <div
+    className="cart-item"
+  >
+    <div
+      className="image"
+      style={
+        Object {
+          "backgroundImage": "url(/src/images/bag1.jpg)",
+        }
+      }
+    />
+    <div
+      className="item-info"
+    >
+      <div>
+        bag1
+      </div>
+      <div>
+        <span>
+          500
+          원
+        </span>
+      </div>
+      <div
+        className="number-selector"
+      >
+        <button
+          className="decrement"
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <input
+          className="number"
+          name="number"
+          onChange={[Function]}
+          value={1}
+        />
+        <button
+          className="increment"
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+    </div>
+    <div
+      className="delete"
+    >
+      <span
+        className="icon far fa-trash-alt"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="cart-item"
+  >
+    <div
+      className="image"
+      style={
+        Object {
+          "backgroundImage": "url(/src/images/bag2.jpg)",
+        }
+      }
+    />
+    <div
+      className="item-info"
+    >
+      <div>
+        bag2
+      </div>
+      <div>
+        <span>
+          400
+          원
+        </span>
+      </div>
+      <div
+        className="number-selector"
+      >
+        <button
+          className="decrement"
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <input
+          className="number"
+          name="number"
+          onChange={[Function]}
+          value={2}
+        />
+        <button
+          className="increment"
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+    </div>
+    <div
+      className="delete"
+    >
+      <span
+        className="icon far fa-trash-alt"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="cart-item"
+  >
+    <div
+      className="image"
+      style={
+        Object {
+          "backgroundImage": "url(/src/images/bag3.jpg)",
+        }
+      }
+    />
+    <div
+      className="item-info"
+    >
+      <div>
+        bag3
+      </div>
+      <div>
+        <span>
+          600
+          원
+        </span>
+      </div>
+      <div
+        className="number-selector"
+      >
+        <button
+          className="decrement"
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <input
+          className="number"
+          name="number"
+          onChange={[Function]}
+          value={3}
+        />
+        <button
+          className="increment"
+          onClick={[Function]}
+        >
+          +
+        </button>
+      </div>
+    </div>
+    <div
+      className="delete"
+    >
+      <span
+        className="icon far fa-trash-alt"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="cart-item"
+  >
+    총 금액: 
+    <span
+      className="cart-total-price"
+    >
+      und,efi,ned
+      원
+    </span>
+  </div>
+  <div
+    className="cart-item"
+  >
+    <button
+      className="button buy primary"
+    >
+      구매하기
+    </button>
+  </div>
+</div>
+`;
