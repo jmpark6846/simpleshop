@@ -22,7 +22,9 @@ export const product = (state=INITIAL_STATE, action) => {
     case PRODUCT_LOAD:
       return { ...state, ...action.product }
     case REVIEW_ADD:
-      return { ...state, reviews: state.reviews.concat(action.review) }
+      const updatedReviews = state.reviews.concat(action.review)
+      const updatedRating = updatedReviews.reduce((a,c) => a + c.rating, 0) / updatedReviews.length
+      return { ...state, reviews: updatedReviews, rating: updatedRating }
     case REVIEW_DELETE:
       return { ...state, reviews: state.reviews.filter(review => review.id !== action.id) }
     default:  
