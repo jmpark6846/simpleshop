@@ -52,7 +52,6 @@ class ProductDetailPage extends React.Component{
 
   get order() {
     const { product } = this.props
-    console.log(product)
     return {
       id: product.id, 
       name: product.name, 
