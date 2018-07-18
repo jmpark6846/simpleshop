@@ -10,8 +10,12 @@ const INITIAL_STATE = {
 }
 
 export const cart = (state=INITIAL_STATE, action) => {
+  let updatedCartItems = {}
+
   switch(action.type){
     case ADD_TO_CART:
+      updatedCartItems = { ...state.cartItems, [action.cartItem.id] : action.cartItem }
+      // 이미 추가된 상품은 더 추가하지 않고 에러 메세지 출력한다.
       return action.cartItem.id in state.cartItems ? 
         { 
           ...state,
@@ -23,25 +27,27 @@ export const cart = (state=INITIAL_STATE, action) => {
         {
           error:false,
           errorMsg:'',
-          cartItems: { ...state.cartItems, [action.cartItem.id] : action.cartItem },
           show: true,
-          totalPrice: Object.values(state.cartItems).map(item=>item.price*item.ea).reduce(((a, c) => a+c),0) + action.cartItem.price*action.cartItem.ea
+          cartItems: updatedCartItems,
+          totalPrice: getCartTotalPrice(updatedCartItems)
         }
+
     case DELETE_CART_ITEM:
-      const cartItems = _.omit(state.cartItems, action.id)
-      const totalPrice = Object.values(cartItems).map(item=>item.price*item.ea).reduce(((a, c) => a+c),0)
+      updatedCartItems = _.omit(state.cartItems, action.id)
       return {
         ...state,
         error:false,
         errorMsg: '',
-        cartItems,
-        totalPrice, 
+        cartItems: updatedCartItems,
+        totalPrice: getCartTotalPrice(updatedCartItems), 
       }
+
     case TOGGLE_CART:
       return {
         ...state,
         show: !state.show
       }
+
     case LOAD_NEW_PAGE:
       return {
         ...state,
@@ -49,10 +55,20 @@ export const cart = (state=INITIAL_STATE, action) => {
         error: INITIAL_STATE.error,
         errorMsg: INITIAL_STATE.errorMsg
       }
+
     case EA_CHANGE:
-      const { id, ea } = action
-      return { ...state, cartItems: { ...state.cartItems, [id]: { ...state.cartItems[id], ea }}}
+      updatedCartItems = { ...state.cartItems, [action.id]: { ...state.cartItems[action.id], ea: action.ea } }
+      return { 
+        ...state, 
+        cartItems: updatedCartItems,
+        totalPrice: getCartTotalPrice(updatedCartItems)
+      }
+      
     default: 
       return state
   }
+}
+
+export const getCartTotalPrice = (cartItems) => {
+  return Object.values(cartItems).map(item=>item.price*item.ea).reduce(((a, c) => a+c),0)
 }
