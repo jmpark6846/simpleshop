@@ -68,7 +68,7 @@ class ReviewForm extends React.Component{
     return (
       <Form className='review-form' onSubmit={this.handleSubmit} style={{display: show ? 'block' : 'none'}}>
         <Header header='리뷰 쓰기' />
-        <Rating error={error.rating} value={rating} onClick={this.ratingClick} input/>
+        <Rating value={rating} onClick={this.ratingClick} input/>
         { error.rating && <Label value={error.rating} error /> }  {/* rating은 별도의 에러 라벨 추가. 나머진 기본으로 포함되어있음. */}
         <Input error={error.username} value={username} onChange={this.handleChange} label='이름' name='review-username' placeholder='이름을 적어주세요.'/>
         <Input error={error.title} value={title} onChange={this.handleChange} label='리뷰 타이틀' name='review-title' placeholder='리뷰의 제목을 적어주세요.'/>
