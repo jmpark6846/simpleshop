@@ -64,7 +64,6 @@ class ReviewForm extends React.Component{
   render(){
     const { show } = this.props
     const { title, content, username, rating, error } = this.state
-    console.log(this.state)
     return (
       <Form className='review-form' onSubmit={this.handleSubmit} style={{display: show ? 'block' : 'none'}}>
         <Header header='리뷰 쓰기' />
