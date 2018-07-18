@@ -1,6 +1,6 @@
 import _ from 'underscore'
 
-import { ADD_TO_CART, TOGGLE_CART, DELETE_CART_ITEM, LOAD_NEW_PAGE } from "../constants/actionTypes";
+import { ADD_TO_CART, TOGGLE_CART, DELETE_CART_ITEM, LOAD_NEW_PAGE, EA_CHANGE } from "../constants/actionTypes";
 const INITIAL_STATE = {
   cartItems: {},
   totalPrice: 0,
@@ -49,6 +49,9 @@ export const cart = (state=INITIAL_STATE, action) => {
         error: INITIAL_STATE.error,
         errorMsg: INITIAL_STATE.errorMsg
       }
+    case EA_CHANGE:
+      const { id, ea } = action
+      return { ...state, cartItems: { ...state.cartItems, [id]: { ...state.cartItems[id], ea }}}
     default: 
       return state
   }
