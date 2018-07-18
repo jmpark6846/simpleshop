@@ -32,7 +32,7 @@ export class ReviewSection extends React.Component{
         </div>
         
         <ReviewForm show={showReviewForm}/>
-        {reviews.map(review => <ReviewRow key={review.id} review={review} />)}
+        {reviews.map((review,i) => <ReviewRow key={i} review={review} />)}
       </SectionWrapper>
     )
   }

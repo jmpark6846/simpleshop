@@ -6,7 +6,7 @@ import './ReviewRow.css'
 const ReviewRow = ({review}) => {
   return (
     <div className='review-row'>
-      <Rating value={review.rate} />
+      <Rating value={review.rating} />
       <div className='title'>{review.title}</div>
       <div className='content'>{review.content}</div>
     </div>
