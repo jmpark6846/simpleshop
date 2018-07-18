@@ -7,9 +7,9 @@ export const products = [
     rating: 3.66, 
     reviewCount: 3,
     reviews: [ 
-      { id: 0, title: '타이틀', content: '리뷰내용이다', rate: 3 },
-      { id: 1, title: '타이틀', content: '리뷰내용이다', rate: 4 },
-      { id: 2, title: '타이틀', content: '리뷰내용이다', rate: 4 },
+      { id: 0, title: '타이틀', content: '리뷰내용이다', rating: 3 },
+      { id: 1, title: '타이틀', content: '리뷰내용이다', rating: 4 },
+      { id: 2, title: '타이틀', content: '리뷰내용이다', rating: 4 },
     ] 
   },
   // { id:1, name: 'Adventurist Daypack - Pine', price: 5800000, imgs: ['/src/asset/img/2.jpg', '/src/asset/img/2.jpg', '/src/asset/img/3.jpg'], rating: 3.75, reviewCount: 4 },   
