@@ -1,4 +1,4 @@
-import { REVIEW_ADD, REVIEW_DELETE, PRODUCT_LOAD } from "../constants/actionTypes";
+import { REVIEW_ADD, REVIEW_DELETE, PRODUCT_LOAD, LOAD_NEW_PAGE } from "../constants/actionTypes";
 
 const INITIAL_STATE = {
   id: undefined,
@@ -27,6 +27,8 @@ export const product = (state=INITIAL_STATE, action) => {
       return { ...state, reviews: updatedReviews, rating: updatedRating }
     case REVIEW_DELETE:
       return { ...state, reviews: state.reviews.filter(review => review.id !== action.id) }
+    case LOAD_NEW_PAGE:
+      return INITIAL_STATE
     default:  
       return state
   }
