@@ -4,33 +4,27 @@ import { ADD_TO_CART, TOGGLE_CART, DELETE_CART_ITEM, LOAD_NEW_PAGE, EA_CHANGE } 
 const INITIAL_STATE = {
   cartItems: {},
   totalPrice: 0,
-  show: false,
-  error: false,
-  errorMsg: '',
 }
 
 export const cart = (state=INITIAL_STATE, action) => {
-  let updatedCartItems = {}
+  let updatedCartItems;
+  let afterState;
 
   switch(action.type){
     case ADD_TO_CART:
-      updatedCartItems = { ...state.cartItems, [action.cartItem.id] : action.cartItem }
-      // 이미 추가된 상품은 더 추가하지 않고 에러 메세지 출력한다.
-      return action.cartItem.id in state.cartItems ? 
-        { 
-          ...state,
-          show: true,
-          error: true,
-          errorMsg: '장바구니에 이미 추가된 상품입니다.'
-        }
-        : 
-        {
-          error:false,
-          errorMsg:'',
-          show: true,
-          cartItems: updatedCartItems,
-          totalPrice: getCartTotalPrice(updatedCartItems)
-        }
+      // 추가하려는 action.cartItem이 cartItems에 존재하면 EA만 증가시킨다.  
+      if( action.cartItem.id in state.cartItems ){
+        const addedEA  = state.cartItems[action.cartItem.id].ea + action.cartItem.ea
+        const updatedCartItem = { ...action.cartItem, ea: addedEA }
+        updatedCartItems = { ...state.cartItems, [action.cartItem.id] : updatedCartItem }
+      }else{
+        updatedCartItems = { ...state.cartItems, [action.cartItem.id] : action.cartItem }
+      }
+        
+      return {
+        cartItems: updatedCartItems,
+        totalPrice: getCartTotalPrice(updatedCartItems)
+      }
 
     case DELETE_CART_ITEM:
       updatedCartItems = _.omit(state.cartItems, action.id)
