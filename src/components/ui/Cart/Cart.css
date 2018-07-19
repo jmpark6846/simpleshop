@@ -71,20 +71,25 @@
 }
 
 .chat-start-icon{
-  position: absolute;
-  top: 2px;
-  right: 32px;
   width: 14px;
   height: 9px;
-  display: block;
   background-position: -141px -42px;
   background-image: url(/src/asset/img/icon.png);
   background-repeat: no-repeat;
   display: none;
 }
+
+.cart-preview-div .chat-start-icon{
+  position: absolute;
+  top: 2px;
+  right: 32px;
+}
+
 .cart-wrapper:hover .cart, .cart-wrapper:hover .chat-start-icon{
   display: block;
 }
+
+
 @media only screen and (min-width: 992px) {
   .shopping-cart{
     right:15px;
@@ -93,8 +98,33 @@
   }
 }
 
-.cart-message{
+.cart-message-body{
   border-radius: 3px;
   border: 1px solid lightgray;
   padding: 30px;
+  position: relative;
+  background-color: white;
+  display: inline-block;
+  left: -17px;
+}
+
+.cart-message{
+  position: relative;
+}
+.cart-message-wrapper{
+  position: absolute;
+  top: -93px;
+}
+.cart-message-wrapper .chat-start-icon{
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+  filter: FlipV;
+  -ms-filter: "FlipV";
+
+  position: relative;
+  top: -3px;
+  left: 105px;
+  display: block;
 }
