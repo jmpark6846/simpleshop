@@ -34,34 +34,40 @@ describe('CartItem', () => {
 })
 
 describe('Cart Reducer -> CartItem', ()=>{
+  const item = { 
+    id:0, 
+    name: 'bag', 
+    price: 100,
+    img: '/path/to/bag.jpg', 
+    ea: 1
+  }
+
   it('initial state 리턴', ()=> {
     const initialState = {
       cartItems: {},
       totalPrice: 0,
-      show: false,
-      error: false,
-      errorMsg: '',
     }
     expect(cart(undefined, {})).toEqual(initialState)
   })
 
-  it('ADD TO CART', () => {
-    const addedCartItem = { 
-      id:0, 
-      name: 'bag', 
-      price: 100,
-      img: '/path/to/bag.jpg', 
-      ea: 1
-    }
-    const action = { type: ADD_TO_CART, cartItem: addedCartItem}
+  it('ADD_TO_CART: 새로운 상품 추가', () => {
+    
+    const action = { type: ADD_TO_CART, cartItem: item}
     const afterState = cart(undefined, action)
 
     expect(afterState).toEqual({
-      error:false,
-      errorMsg:'',
-      show: true,
-      cartItems: { 0 : addedCartItem },
+      cartItems: { 0 : item },
       totalPrice: 100
     })
+  })
+
+  it('ADD_TO_CART: 이미 추가된 상품을 또 추가', ()=>{
+    //given
+    const beforeState = { cartItems: { 0: item }, totalPrice: 100 }
+    const action = { type: ADD_TO_CART, cartItem: item }
+    //when
+    const afterState = cart(beforeState, action)
+    //then
+    expect(afterState).toEqual({ cartItems: { 0: {...item, ea: 2} }, totalPrice:200 })
   })
 })
