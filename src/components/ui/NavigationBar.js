@@ -1,7 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
 import NavBar from '../ui-components/NavBar/NavBar';
 import NavHeader from '../ui-components/NavBar/NavHeader';
 import NavMenu from '../ui-components/NavBar/NavMenu';
