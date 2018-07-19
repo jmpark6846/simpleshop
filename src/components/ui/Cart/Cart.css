@@ -16,7 +16,7 @@
   display: block;
 }
 
-.cart-item{
+.cart-item, .cart-item-wrapper{
   padding: 15px;
   
   border-bottom: 1px solid lightgray;
@@ -46,18 +46,18 @@
   padding: 0 5px;
 }
 
-.cart-item.error{
+.cart .error{
   background-color: rgba(216, 112, 147);
   color:white;
 }
 
-.cart-item.error .icon{
+.cart .icon{
   margin-right: 5px;
 }
-.cart-item .delete{
+.cart .delete{
   align-self: center;
 }
-.cart-item .delete .icon{
+.cart .delete .icon{
   cursor: pointer;
 }
 
