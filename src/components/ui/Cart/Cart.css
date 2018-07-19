@@ -5,7 +5,8 @@
   font-size: 0.9rem;
   width: 300px;
   z-index: 1000;
-  margin-top:10px;
+  margin-top:8px;
+  display: none;
 }
 
 .cart.show{
@@ -63,4 +64,31 @@
 
 .cart button.buy{
   width:100%;
+}
+
+.shopping-cart:hover {
+  background-color: transparent!important;
+}
+
+.chat-start-icon{
+  position: absolute;
+  top: 2px;
+  right: 32px;
+  width: 14px;
+  height: 9px;
+  display: block;
+  background-position: -141px -42px;
+  background-image: url(/src/asset/img/icon.png);
+  background-repeat: no-repeat;
+  display: none;
+}
+.cart-wrapper:hover .cart, .cart-wrapper:hover .chat-start-icon{
+  display: block;
+}
+@media only screen and (min-width: 992px) {
+  .shopping-cart{
+    right:15px;
+    top:10px;
+    position: block;
+  }
 }

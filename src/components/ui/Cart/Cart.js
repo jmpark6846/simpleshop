@@ -14,6 +14,7 @@ export const Cart = ({show, cartItems, totalPrice}) => {
     <div className='cart-wrapper'>
       <Button className='shopping-cart' icon='fas fa-shopping-cart'/>
       <div className='cart-preview-div'>
+        <i className='chat-start-icon'></i>
         <div className={classNames('cart', { show })} >
           { cartItems &&Object.keys(cartItems).length !== 0 ? 
             Object.keys(cartItems).map(id=> <CartItem key={id} cartItem={cartItems[id]} />)          
