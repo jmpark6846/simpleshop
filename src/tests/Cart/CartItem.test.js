@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import { cart } from '../../reducers/cart'
 import { CartItem } from '../../components/ui/Cart/CartItem';
-import { ADD_TO_CART } from '../../constants/actionTypes';
+import { ADD_TO_CART, DELETE_CART_ITEM, EA_CHANGE } from '../../constants/actionTypes';
 
 Enzyme.configure({ adapter: new Adapter()})
 
@@ -69,5 +69,25 @@ describe('Cart Reducer -> CartItem', ()=>{
     const afterState = cart(beforeState, action)
     //then
     expect(afterState).toEqual({ cartItems: { 0: {...item, ea: 2} }, totalPrice:200 })
+  })
+
+  it('DELETE_CART_ITEM', ()=>{
+    //given
+    const beforeState = { cartItems: { 0: item }, totalPrice: 100 }
+    const action = { type: DELETE_CART_ITEM, id: item.id }
+    //when
+    const afterState = cart(beforeState, action)
+    //then
+    expect(afterState).toEqual({ cartItems: { }, totalPrice:0 })
+  })
+
+  it('EA_CHANGE', ()=> {
+    //given
+    const beforeState = { cartItems: { 0: item }, totalPrice: 100 }
+    const action = { type: EA_CHANGE, id: item.id, ea: 10 }
+    //when
+    const afterState = cart(beforeState, action)
+    //then
+    expect(afterState).toEqual({ cartItems: { 0: { ...item, ea: 10 }}, totalPrice:1000 })
   })
 })
