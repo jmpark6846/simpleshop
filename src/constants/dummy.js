@@ -2,7 +2,8 @@ export const products = [
   { 
     id:0, 
     name: 'Adventurist Daypack - Black', 
-    price: 590000, 
+    price: 590000,
+    thumbnail: '/src/asset/img/1.jpeg', 
     imgs: ['/src/asset/img/1.jpeg', '/src/asset/img/2.jpg', '/src/asset/img/3.jpg'], 
     rating: 3.66, 
     reviewCount: 3,
