@@ -1,14 +1,11 @@
 .cart{ 
-  position: absolute;
   background-color: white;
-  top: 53px;
-  right: 15px;
   border:1px solid lightgray;
   border-radius: 3px;
-  display: none;
   font-size: 0.9rem;
   width: 300px;
   z-index: 1000;
+  margin-top:10px;
 }
 
 .cart.show{
@@ -20,6 +17,10 @@
   
   border-bottom: 1px solid lightgray;
   display: flex;
+}
+.cart-preview-div{
+  position: absolute;
+  right: 64px;
 }
 .cart-item .image{
   background-size: cover;
