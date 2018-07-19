@@ -1,18 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { NavLink } from "react-router-dom";
 import NumberSelector from '../../ui-components/NumberSelector/NumberSelector'
 import Price from "../../ui-components/Price/Price";
 import Icon from '../../ui-components/Icon/Icon'
 import { doDeleteCartItem, doChangeEA } from '../../../actions/cart';
-import { cart } from '../../../reducers/cart';
 
 export const CartItem = ({cartItem, deleteCartItem, changeEA}) => {
   return (
     <div className='cart-item'>
       <div className='image' style={{ backgroundImage: `url(${cartItem.img})` }}></div>      
       <div className='item-info'>
-        <div>{ cartItem.name.length > 20 ? `${cartItem.name.substr(0,20)}...` : cartItem.name }</div>
+        <div><NavLink to={'/product/'+cartItem.id} >{ cartItem.name.length > 20 ? `${cartItem.name.substr(0,20)}...` : cartItem.name }</NavLink></div>
         <div><Price price={ cartItem.price } suffix='원' /></div>
         <NumberSelector number={cartItem.ea} onChange={(ea)=>changeEA(cartItem.id, ea)} />
       </div>
