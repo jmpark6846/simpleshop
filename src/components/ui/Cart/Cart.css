@@ -108,8 +108,24 @@
   left: -17px;
 }
 
+@keyframes popup {
+  from {
+    display: block;
+  }
+
+  to {
+    display: none;
+  }
+}
+
 .cart-message{
   position: relative;
+  display: block;
+
+}
+
+.cart-message.hide{
+  display: none;
 }
 .cart-message-wrapper{
   position: absolute;
@@ -127,4 +143,13 @@
   top: -3px;
   left: 105px;
   display: block;
+}
+
+.cart-message .icon{
+  position: absolute;
+  top: 0px;
+  right: 8px;
+  line-height: 1;
+  cursor: pointer;
+  font-size: 25px;
 }

@@ -16,6 +16,7 @@ import { products } from "../constants/dummy";
 import './ProductDetailPage.css'
 import { doLoadProduct } from '../actions/product';
 import Slider from '../components/ProductDetail/Slider';
+import CartMessage from '../components/ui/Cart/CartMessage';
 
 
 class ProductDetailPage extends React.Component{
@@ -26,7 +27,8 @@ class ProductDetailPage extends React.Component{
       ea: 1,
       shippingRate: 3000,
       shippingRateFreeLimit: 30000,
-      totalPrice: undefined
+      totalPrice: undefined,
+      cartMessageShow: false
     }
   }
 
@@ -60,9 +62,19 @@ class ProductDetailPage extends React.Component{
       ea:this.state.ea
     }
   }
-      
+
+  handleAddToCart = () => {
+    this.props.addToCart(this.order)
+    this.setState({ cartMessageShow: true })
+  }
+
+  handleCloseClick = () => {
+    this.setState({ cartMessageShow: false })
+  }
+
   render(){
-    const { loaded, addToCart } = this.props
+    const { cartMessageShow } = this.state
+    const { loaded } = this.props
     return (
       <PageLayout page='product-detail-page'>
         { 
@@ -77,10 +89,12 @@ class ProductDetailPage extends React.Component{
             <Col desktop={6}>
               <ProductInfoSection handleEAChange={this.handleEAChange} {...this.state}/>
               <SectionWrapper>
-                <ProductInfoRow>
-                  <Button onClick={()=>addToCart(this.order)} value='장바구니 담기'/>
-                  <Button value='구매하기' primary />
-                </ProductInfoRow>
+                  <CartMessage handleCloseClick={this.handleCloseClick} show={cartMessageShow}/>
+                  <ProductInfoRow>  
+                    <Button onClick={this.handleAddToCart} value='장바구니 담기'/>
+                    <Button value='구매하기' primary />
+                  </ProductInfoRow>
+                
               </SectionWrapper>
             </Col>
           </Row>
