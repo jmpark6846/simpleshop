@@ -92,3 +92,9 @@
     position: block;
   }
 }
+
+.cart-message{
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  padding: 30px;
+}
