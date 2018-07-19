@@ -9,7 +9,6 @@ import NavItem from '../ui-components/NavBar/NavItem';
 import './NavigationBar.css'
 import Button from '../ui-components/Button/Button';
 import Cart from "./Cart/Cart";
-import { doToggleCart } from '../../actions/cart';
 
 class NavigationBar extends React.Component {
   render(){
@@ -19,19 +18,11 @@ class NavigationBar extends React.Component {
         <NavMenu pullRight>
           <NavItem to='/'>Shop</NavItem>          
         </NavMenu>  
-        <Button className='shopping-cart' icon='fas fa-shopping-cart' onClick={this.props.toggleCart}/>
+        <Button className='shopping-cart' icon='fas fa-shopping-cart'/>
         <Cart />
       </NavBar>
     )
   }
 }
 
-NavigationBar.propTypes = {
-  toggleCart: PropTypes.func
-}
-
-const mapDispatch = (dispatch) => ({
-  toggleCart: () => dispatch(doToggleCart())
-})
-
-export default connect(undefined, mapDispatch)(NavigationBar)
+export default NavigationBar

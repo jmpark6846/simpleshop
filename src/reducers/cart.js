@@ -1,5 +1,5 @@
 import _ from 'underscore'
-import { ADD_TO_CART, TOGGLE_CART, DELETE_CART_ITEM, LOAD_NEW_PAGE, EA_CHANGE } from "../constants/actionTypes";
+import { ADD_TO_CART, DELETE_CART_ITEM, EA_CHANGE } from "../constants/actionTypes";
 
 const INITIAL_STATE = {
   cartItems: {},
@@ -8,8 +8,7 @@ const INITIAL_STATE = {
 
 export const cart = (state=INITIAL_STATE, action) => {
   let updatedCartItems;
-  let afterState;
-
+  
   switch(action.type){
     case ADD_TO_CART:
       // 추가하려는 action.cartItem이 cartItems에 존재하면 EA만 증가시킨다.  
@@ -29,25 +28,8 @@ export const cart = (state=INITIAL_STATE, action) => {
     case DELETE_CART_ITEM:
       updatedCartItems = _.omit(state.cartItems, action.id)
       return {
-        ...state,
-        error:false,
-        errorMsg: '',
         cartItems: updatedCartItems,
         totalPrice: getCartTotalPrice(updatedCartItems), 
-      }
-
-    case TOGGLE_CART:
-      return {
-        ...state,
-        show: !state.show
-      }
-
-    case LOAD_NEW_PAGE:
-      return {
-        ...state,
-        show:false,
-        error: INITIAL_STATE.error,
-        errorMsg: INITIAL_STATE.errorMsg
       }
 
     case EA_CHANGE:
@@ -57,7 +39,7 @@ export const cart = (state=INITIAL_STATE, action) => {
         cartItems: updatedCartItems,
         totalPrice: getCartTotalPrice(updatedCartItems)
       }
-      
+
     default: 
       return state
   }
