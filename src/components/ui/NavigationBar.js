@@ -14,9 +14,9 @@ class NavigationBar extends React.Component {
         <NavHeader>Simpleshop</NavHeader>
         <NavMenu pullRight>
           <NavItem to='/'>Shop</NavItem>          
+          <NavItem><Cart /></NavItem>
         </NavMenu>  
-        <Button className='shopping-cart' icon='fas fa-shopping-cart'/>
-        <Cart />
+        
       </NavBar>
     )
   }

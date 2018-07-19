@@ -9,9 +9,9 @@
   margin-right:60px;
 }
 .shopping-cart{
-  right: 15px;
+  /* right: 15px;
   top: 10px;
-  position: absolute;
+  position: absolute; */
   /* border: none!important; */
 }
 .shopping-cart:hover{
