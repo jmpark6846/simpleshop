@@ -21,21 +21,18 @@ describe('CartItem', () => {
     img: '/path/to/bag.jpg', 
   }
 
-  let store = mockStore({
-    cart: {
-      cartItems: { 0 : cartItem },
-      totalPrice: cartItem.price
-    }
-  })
-
-
   it('CartItem snapshot test', () => {
     const tree = renderer.create(<CartItem cartItem={cartItem} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
-  it('CarItem rendering test', () => {
+  it('CartItem을 렌더링 한다.', () => {
     const wrapper = shallow(<CartItem cartItem={cartItem} />)
-    expect(wrapper.find('.image').props().style).toEqual({ backgroundImage: `url(${cartItem.img})` })
+    expect(wrapper.find('.cart-item').exists()).toBe(true)
+  })
+
+  it('cartItem props를 대입하면 상품의 이미지를 style의 backgroundImage로 설정한다.', () => {
+    const wrapper = shallow(<CartItem cartItem={cartItem} />)
+    expect(wrapper.find('.image').props().style.backgroundImage).toEqual(`url(${cartItem.img})`)
   })
 })
