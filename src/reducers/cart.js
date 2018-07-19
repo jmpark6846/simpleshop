@@ -1,6 +1,6 @@
 import _ from 'underscore'
-
 import { ADD_TO_CART, TOGGLE_CART, DELETE_CART_ITEM, LOAD_NEW_PAGE, EA_CHANGE } from "../constants/actionTypes";
+
 const INITIAL_STATE = {
   cartItems: {},
   totalPrice: 0,
