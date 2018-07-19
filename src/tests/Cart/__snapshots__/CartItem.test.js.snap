@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartItem CartItem snapshot test 1`] = `
+<div
+  className="cart-item"
+>
+  <div
+    className="image"
+    style={
+      Object {
+        "backgroundImage": "url(/path/to/bag.jpg)",
+      }
+    }
+  />
+  <div
+    className="item-info"
+  >
+    <div>
+      bag
+    </div>
+    <div>
+      <span>
+        100
+        원
+      </span>
+    </div>
+    <div
+      className="number-selector"
+    >
+      <button
+        className="decrement"
+        onClick={[Function]}
+      >
+        -
+      </button>
+      <input
+        className="number"
+        name="number"
+        onChange={[Function]}
+      />
+      <button
+        className="increment"
+        onClick={[Function]}
+      >
+        +
+      </button>
+    </div>
+  </div>
+  <div
+    className="delete"
+  >
+    <span
+      className="icon far fa-trash-alt"
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;

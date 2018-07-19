@@ -170,7 +170,7 @@ exports[`Cart Cart snapshot test 1`] = `
     </div>
   </div>
   <div
-    className="cart-item"
+    className="cart-item-wrapper"
   >
     총 금액: 
     <span
@@ -181,7 +181,7 @@ exports[`Cart Cart snapshot test 1`] = `
     </span>
   </div>
   <div
-    className="cart-item"
+    className="cart-item-wrapper"
   >
     <button
       className="button buy primary"
