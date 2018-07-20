@@ -1,12 +1,14 @@
 import React from 'react'
+import { BrowserRouter as Router }    from 'react-router-dom';
+
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import { createStore } from "redux";
+import { createStore } from 'redux'
 import { Cart } from '../../components/ui/Cart/Cart';
 import ConnectedCartItem from '../../components/ui/Cart/CartItem';
-import store from "../../store";
+import { cart } from '../../reducers/cart';
 
 Enzyme.configure({ adapter: new Adapter()})
 
@@ -18,7 +20,9 @@ describe('Cart', ()=> {
   }
 
   it('Cart snapshot test', () =>{
-    const tree = renderer.create(<Provider store={store}><Cart cartItems={cartItems} /></Provider>).toJSON()
+    const store = createStore(cart)
+
+    const tree = renderer.create(<Provider store={store}><Router><Cart cartItems={cartItems} /></Router></Provider>).toJSON()
     expect(tree).toMatchSnapshot()
   })
 

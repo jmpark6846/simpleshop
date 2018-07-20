@@ -16,7 +16,13 @@ exports[`CartItem CartItem snapshot test 1`] = `
     className="item-info"
   >
     <div>
-      bag
+      <a
+        aria-current={null}
+        href="/product/0"
+        onClick={[Function]}
+      >
+        bag
+      </a>
     </div>
     <div>
       <span>

@@ -1,4 +1,6 @@
 import React from 'react'
+import { BrowserRouter as Router }    from 'react-router-dom';
+
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer'
@@ -18,7 +20,7 @@ describe('CartItem', () => {
   }
 
   it('CartItem snapshot test', () => {
-    const tree = renderer.create(<CartItem cartItem={cartItem} />).toJSON()
+    const tree = renderer.create(<Router><CartItem cartItem={cartItem} /></Router>).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
