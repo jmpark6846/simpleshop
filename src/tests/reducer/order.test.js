@@ -15,16 +15,4 @@ describe('order reducer', ()=> {
 
     expect(afterState).toEqual({ orderItems, totalPrice: 100})
   })
-
-  it('ORDER_ADD: OrderItem이 있는 Order에 겹치는 OrderItems 추가', () => {
-    const orderItems = { 0: {id:0, name:'haha', price:100, ea:1} }
-    const beforeState = { orderItems: orderItems, totalPrice: 100 }
-    const action = { type: ORDER_ADD, orderItems: { 0: {id:0, name:'haha', price: 100, ea: 5 }, 2: { id:2, name:'omg', price:200, ea:2}}}
-    const afterState = order(beforeState, action)
-
-    expect(afterState).toEqual({ 
-      orderItems: { 0: {id:0, name:'haha', price: 100, ea: 6 }, 2: { id:2, name:'omg', price:200, ea:2}},
-      totalPrice: 1000
-    })
-  })
 })
