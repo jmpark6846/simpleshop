@@ -74,22 +74,18 @@ describe('Cart Reducer -> CartItem', ()=>{
   })
 
   it('DELETE_CART_ITEM', ()=>{
-    //given
     const beforeState = { cartItems: { 0: item }, totalPrice: 100 }
     const action = { type: DELETE_CART_ITEM, id: item.id }
-    //when
     const afterState = cart(beforeState, action)
-    //then
+    
     expect(afterState).toEqual({ cartItems: { }, totalPrice:0 })
   })
 
   it('EA_CHANGE', ()=> {
-    //given
     const beforeState = { cartItems: { 0: item }, totalPrice: 100 }
     const action = { type: EA_CHANGE, id: item.id, ea: 10 }
-    //when
     const afterState = cart(beforeState, action)
-    //then
+
     expect(afterState).toEqual({ cartItems: { 0: { ...item, ea: 10 }}, totalPrice:1000 })
   })
 })
