@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import classNames from 'classnames'
 import './Cart.css'
 import CartItem from './CartItem';
-
-import Icon from '../../ui-components/Icon/Icon';
 import Button from '../../ui-components/Button/Button';
 import Price from '../../ui-components/Price/Price';
+import { doOrderAdd } from '../../../actions/order';
+import { NavLink } from 'react-router-dom'
 
 export const Cart = ({show, cartItems, totalPrice, AddOrder}) => {
   return (
@@ -25,7 +25,9 @@ export const Cart = ({show, cartItems, totalPrice, AddOrder}) => {
                 총 금액: <Price className='cart-total-price' price={totalPrice} suffix='원'/>
               </div> 
               <div className='cart-item-wrapper'>
-                <Button className='buy' value='구매하기' onClick={()=>AddOrder(cartItems)} primary/>
+                <NavLink to='/checkout'>
+                  <Button className='buy' value='구매하기' onClick={()=>AddOrder(cartItems)} primary/>
+                </NavLink>
               </div>
             </div>
             :
