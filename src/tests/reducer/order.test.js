@@ -21,7 +21,7 @@ describe('order reducer', ()=> {
     const beforeState = { orderItems: orderItems, totalPrice: 100 }
     const action = { type: ORDER_ADD, orderItems: { 0: {id:0, name:'haha', price: 100, ea: 5 }, 2: { id:2, name:'omg', price:200, ea:2}}}
     const afterState = order(beforeState, action)
-    
+
     expect(afterState).toEqual({ 
       orderItems: { 0: {id:0, name:'haha', price: 100, ea: 6 }, 2: { id:2, name:'omg', price:200, ea:2}},
       totalPrice: 1000
