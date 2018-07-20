@@ -69,7 +69,7 @@ class ProductDetailPage extends React.Component{
     this.setState({ cartMessageShow: true })
   }
 
-  handleCloseClick = () => {
+  onMessageDismiss = () => {
     this.setState({ cartMessageShow: false })
   }
 
@@ -90,7 +90,7 @@ class ProductDetailPage extends React.Component{
             <Col desktop={6}>
               <ProductInfoSection handleEAChange={this.handleEAChange} {...this.state}/>
               <SectionWrapper>
-                  <CartMessage handleCloseClick={this.handleCloseClick} show={cartMessageShow}/>
+                  <CartMessage onMessageDismiss={this.onMessageDismiss} show={cartMessageShow}/>
                   <ProductInfoRow>  
                     <Button onClick={this.handleAddToCart} value='장바구니 담기'/>
                     <Button value='구매하기' primary />
