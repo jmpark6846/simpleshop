@@ -44,7 +44,6 @@ class ProductDetailPage extends React.Component{
 
   componentDidUpdate = (prevProps, prevState) => {
     if(prevProps.product.price !== this.props.product.price){
-      console.log(this.props.product.price)
       this.setState({totalPrice: this.props.product.price * this.state.ea})
     }
   }
