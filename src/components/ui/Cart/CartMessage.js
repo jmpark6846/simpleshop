@@ -17,7 +17,9 @@ class CartMessage extends React.Component{
       clearInterval(this.delay)
     }
   }
-
+  componentWillUnmount(){
+    clearInterval(this.delay)
+  }
   componentDidUpdate = (prevProps, prevState) => {
     if(prevProps.show !== this.props.show && this.props.show === true){
       this.setState({ visible: true, showCount: TIMER_SECONDS })
