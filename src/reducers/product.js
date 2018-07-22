@@ -1,4 +1,4 @@
-import { REVIEW_ADD, REVIEW_DELETE, PRODUCT_LOAD, LOAD_NEW_PAGE, PRODUCTS_LOAD, PRODUCTS_REQUEST_SUCCESS, PRODUCTS_REQUEST_FAIL } from "../constants/actionTypes";
+import { REVIEW_ADD, REVIEW_DELETE, PRODUCT_LOAD, LOAD_NEW_PAGE, PRODUCTS_LOAD, PRODUCTS_REQUEST_SUCCESS, PRODUCTS_REQUEST_FAIL, PRODUCT_REQUEST_SUCCESS } from "../constants/actionTypes";
 
 const INITIAL_STATE = {
   id: undefined,
@@ -20,12 +20,12 @@ const INITIAL_STATE = {
 
 export const product = (state=INITIAL_STATE, action) => {
   switch(action.type){
-    case PRODUCT_LOAD:
-      return { ...state, ...action.product }
     case REVIEW_ADD:
       const updatedReviews = state.reviews.concat(action.review)
       const updatedRating = updatedReviews.reduce((a,c) => a + c.rating, 0) / updatedReviews.length
       return { ...state, reviews: updatedReviews, rating: updatedRating }
+    case PRODUCT_REQUEST_SUCCESS:
+      return { ...state, ...action.product}
     case REVIEW_DELETE:
       return { ...state, reviews: state.reviews.filter(review => review.id !== action.id) }
     case LOAD_NEW_PAGE:
