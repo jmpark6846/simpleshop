@@ -13,3 +13,7 @@ const mockAsyncCall = (state=SUCCESS, data, error) => {
 export const productList = () => {
   return mockAsyncCall(SUCCESS, products, '상품 리스트를 불러오지 못했습니다.')
 }
+
+export const product = (productId) => {
+  return mockAsyncCall(SUCCESS, products[productId], `상품[${productId}]을 불러오지 못했습니다.`)
+}
