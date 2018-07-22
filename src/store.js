@@ -1,8 +1,9 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
-import { createLogger } from '../../../Users/user/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/redux-logger'
+import { createLogger } from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
 
 import { cart, product, order } from './reducers'
+import rootSaga from './sagas/rootSaga';
 
 const root = combineReducers({
   cart: cart,

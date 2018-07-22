@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   imgs: [],
   rating:0,
   reviews: [],
-  products: []
+  productList: []
 }
 
 // review id
