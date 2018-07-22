@@ -23,9 +23,9 @@ export const doLoadProducts = () => ({
   type: PRODUCTS_LOAD,
 })
 
-export const doLoadProductsSuccss = ({data}) => ({
+export const doLoadProductsSuccss = ({productList}) => ({
   type: PRODUCTS_REQUEST_SUCCESS,
-  data
+  productList
 })
 
 export const doLoadProductsFail  = ({error}) => ({
