@@ -5,10 +5,8 @@ import { doLoadProductsFail, doLoadProductsSuccss } from "../actions/product";
 
 function* loadProducts(){
   const { data, error } = yield call(Api.productList)
-  console.log(data)
-  console.log(error)
   if( data && !error ){
-    yield put(doLoadProductsSuccss({ data }))
+    yield put(doLoadProductsSuccss({ productList: data }))
   }else{
     yield put(doLoadProductsFail({ error }))
   }
