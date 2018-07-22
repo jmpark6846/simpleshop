@@ -1,4 +1,4 @@
-import { REVIEW_ADD, REVIEW_DELETE, PRODUCT_LOAD, LOAD_NEW_PAGE } from "../constants/actionTypes";
+import { REVIEW_ADD, REVIEW_DELETE, PRODUCT_LOAD, LOAD_NEW_PAGE, PRODUCTS_LOAD, PRODUCTS_REQUEST_SUCCESS, PRODUCTS_REQUEST_FAIL } from "../constants/actionTypes";
 
 const INITIAL_STATE = {
   id: undefined,
@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   imgs: [],
   rating:0,
   reviews: [],
-  productList: []
+  productList: {}
 }
 
 // review id
@@ -30,7 +30,15 @@ export const product = (state=INITIAL_STATE, action) => {
       return { ...state, reviews: state.reviews.filter(review => review.id !== action.id) }
     case LOAD_NEW_PAGE:
       return INITIAL_STATE
+    case PRODUCTS_REQUEST_SUCCESS:
+      return { ...state, productList: { ...state.productList, ...getProductsById(action.productList)} }
     default:  
       return state
   }
+}
+
+function getProductsById(products){
+  let productsById={} ;
+  products.forEach(product => productsById[product.id] = product)
+  return productsById
 }
