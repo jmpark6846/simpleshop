@@ -1,4 +1,4 @@
-import { PRODUCT_LOAD, REVIEW_ADD, REVIEW_DELETE, LOAD_NEW_PAGE, PRODUCTS_LOAD, PRODUCTS_REQUEST_SUCCESS, PRODUCTS_REQUEST_FAIL } from "../constants/actionTypes";
+import { PRODUCT_LOAD, REVIEW_ADD, REVIEW_DELETE, LOAD_NEW_PAGE, PRODUCTS_LOAD, PRODUCT_REQUEST_SUCCESS, PRODUCT_REQUEST_FAIL, PRODUCTS_REQUEST_SUCCESS, PRODUCTS_REQUEST_FAIL } from "../constants/actionTypes";
 
 export const doReviewAdd = (review) => ({
   type: REVIEW_ADD,
@@ -14,9 +14,19 @@ export const doLoadNewPage = () => ({
   type: LOAD_NEW_PAGE,
 })
 
-export const doLoadProduct = (product) => ({
+export const doLoadProduct = (productId) => ({
   type: PRODUCT_LOAD,
+  productId
+})
+
+export const doLoadProductSuccess = ({product}) => ({
+  type: PRODUCT_REQUEST_SUCCESS,
   product
+})
+
+export const doLoadProductFail  = ({error}) => ({
+  type: PRODUCT_REQUEST_FAIL,
+  error
 })
 
 export const doLoadProducts = () => ({

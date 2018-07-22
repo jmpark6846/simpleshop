@@ -32,14 +32,10 @@ class ProductDetailPage extends React.Component{
     }
   }
 
-  mockAsyncLoadProduct = (id) => {
-    return products[id]
-  }
   
   componentDidMount = () => {
     const id = this.props.match.params.id
-    const product = this.mockAsyncLoadProduct(id)
-    this.props.loadProduct(product)
+    this.props.loadProduct(id)
   }
 
   componentDidUpdate = (prevProps, prevState) => {
