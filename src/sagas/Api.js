@@ -6,7 +6,7 @@ const mockAsyncCall = (state=SUCCESS, data, error) => {
   return new Promise(function(resolve, reject){
     setTimeout(()=>{ 
       state === 'SUCCESS' ? resolve(data) : reject(new Error(error)) 
-    }, 1000)
+    }, 300)
     }).then((data)=> ({data})).catch((error)=> ({error}))
 }
 

@@ -13,7 +13,6 @@ function* loadProducts(){
 }
 
 function* loadProduct(action){
-  console.log(action)
   const { data, error } = yield call(Api.product, action.productId)
   if( data && !error ){
     yield put(doLoadProductSuccess({ product: data}))
