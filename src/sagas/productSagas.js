@@ -1,14 +1,16 @@
-import { takeEvery } from "redux-saga/effects";
+import { takeEvery, call, put } from "redux-saga/effects";
 import { PRODUCTS_LOAD } from "../constants/actionTypes";
 import * as Api from './Api'
-import { loadProductsSuccss, loadProductsFail } from "../actions/product";
+import { doLoadProductsFail, doLoadProductsSuccss } from "../actions/product";
 
 function* loadProducts(){
-  const { data, error } = yield call(Api.loadProducts)
+  const { data, error } = yield call(Api.productList)
+  console.log(data)
+  console.log(error)
   if( data && !error ){
-    yield put(loadProductsSuccss({ data }))
+    yield put(doLoadProductsSuccss({ data }))
   }else{
-    yield put(loadProductsFail({ error }))
+    yield put(doLoadProductsFail({ error }))
   }
 }
 
