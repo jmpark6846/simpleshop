@@ -1,4 +1,3 @@
-
 import { takeEvery, call, put } from "redux-saga/effects";
 import * as Api from './Api'
 
@@ -10,7 +9,7 @@ function* purchase({orderItems, push}){
   const { data, error } = yield call(Api.purchase)
   if( data && !error ){
     yield put(doPurchaseSuccess())
-    push('/')
+    push('/checkout')
   }else{
     yield put(doPurchaseFail())
   }
