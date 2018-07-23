@@ -1,0 +1,47 @@
+.page.order .header{
+  text-align: center;
+  margin: 30px 0;
+  font-size: 1.5rem;
+}
+
+.order-item-row{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 20px 0;
+}
+
+
+.order-item-row .order-item-image{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 80%;
+  margin: auto;
+}
+
+.order-item-row .order-item-image::after{
+  content:'';
+  display: block;
+  z-index: -100;
+  padding-bottom: 100%;
+}
+
+.order-item-name{
+  font-weight: 700;
+}
+.order-item-price{
+  text-align: right;
+}
+
+.total-price-section .total-price{
+  text-align: right;
+}
+.total-price-section .total-price-label{
+  text-align: center;
+}
+
+.total-price-section{
+  font-weight: 700;
+  padding: 20px 0;
+}

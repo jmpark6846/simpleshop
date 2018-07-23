@@ -5,7 +5,7 @@ import './App.css'
 
 import ProductListPage from "../page/ProductListPage";
 import ProductDetailPage from '../page/ProductDetailPage';
-import { CheckoutPage } from '../page/CheckoutPage';
+import OrderSuccessPage from '../page/OrderSuccessPage';
 
 export default class App extends Component {
   render() {
@@ -15,7 +15,7 @@ export default class App extends Component {
           <Switch>  
             <Route path='/' component={ProductListPage} exact />
             <Route path='/product/:id' component={ProductDetailPage} />
-            <Route path='/checkout' component={CheckoutPage} />
+            <Route path='/checkout' component={OrderSuccessPage} />
           </Switch>
         </HashRouter>
       </div>
