@@ -17,3 +17,7 @@ export const productList = () => {
 export const product = (productId) => {
   return mockAsyncCall(SUCCESS, products[productId], `상품[${productId}]을 불러오지 못했습니다.`)
 }
+
+export const purchase = () => {
+  return mockAsyncCall(SUCCESS, { success: true }, '주문 실패')
+}
