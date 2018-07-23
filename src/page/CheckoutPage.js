@@ -19,7 +19,7 @@ export class CheckoutPage extends Component {
       <PageLayout page='checkout'>
         <Header header='주문' />
         <SectionWrapper>
-          {/* { orderItems && orderItems.map(orderItem => <CheckoutItemRow checkoutItem={orderItem} />) } */}
+          { orderItems && orderItems.map(orderItem => <CheckoutItemRow checkoutItem={orderItem} />) }
         </SectionWrapper>
       </PageLayout>
     )
