@@ -55,7 +55,7 @@
 .product-list-item .shortcut-cart{
   position: absolute;
   right: 43%;
-  bottom: 55px;
+  bottom: 75px;
   background-color: white;
   opacity: 0;
   border-radius: 50px;
@@ -70,4 +70,10 @@
 
 .product-list-item:hover .shortcut-cart:hover{
   opacity: 1;
+}
+
+.product-list-item .cart-message-wrapper{
+  top: -145px;
+  left: 40px;
+  z-index: 2000;
 }
